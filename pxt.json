@@ -11,7 +11,7 @@
         "README.md",
         "main.py",
         "string.py",
-        "string.ts"
+        "_locales/cs/README.md"
     ],
     "testFiles": [
         "test.ts"
