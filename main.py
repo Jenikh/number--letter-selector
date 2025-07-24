@@ -18,7 +18,7 @@ def select(printable=False, letters=True, only_lowercase=False, only_uppercase=F
     else:
         s = digits
 
-    symbols = list(s)
+    symbols = s
 
     index = 0
     while True:
@@ -27,14 +27,17 @@ def select(printable=False, letters=True, only_lowercase=False, only_uppercase=F
 
         # Wait for button press
         while True:
-            if button_b.is_pressed():
+            if input.button_is_pressed(Button.B):
                 return letter  # Return current letter when Button B pressed
-            if button_a.is_pressed():
+            if input.button_is_pressed(Button.A):
                 # Move to next letter on Button A press
                 index = (index + 1) % len(symbols)
                 break  # Exit inner while loop to show next letter
-            sleep(100)  # Small delay to avoid busy waiting
+            
+            while control.millis() > control.millis() + 30:
+                pass
+
 
 # Example usage
 selected_letter = select(printable=False, letters=True, only_lowercase=True)
-display.scroll("You picked: {}".format(selected_letter))
+basic.show_string("You picked: " + selected_letter)

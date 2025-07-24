@@ -22,23 +22,32 @@ function select(printable: boolean = false, letters: boolean = true, only_lowerc
         s = digits
     }
     
-    let symbols = []
-    for (letter of s) {
-        symbols.push(letter)
-    }
-    //  Show each letter on the Micro:bit display
+    let symbols = s
+    let index = 0
     while (true) {
-        for (letter of symbols) {
-            while (!input.buttonIsPressed(Button.A)) {
-                basic.showString(letter)
-            }
+        letter = symbols[index]
+        basic.showString(letter)
+        //  Wait for button press
+        while (true) {
             if (input.buttonIsPressed(Button.B)) {
                 return letter
             }
             
+            //  Return current letter when Button B pressed
+            if (input.buttonIsPressed(Button.A)) {
+                //  Move to next letter on Button A press
+                index = (index + 1) % symbols.length
+                break
+            }
+            
+            //  Exit inner while loop to show next letter
+            while (control.millis() > control.millis() + 30) {
+                
+            }
         }
     }
 }
 
 //  Example usage
-select(false, true, true)
+let selected_letter = select(false, true, true)
+basic.showString("You picked: " + selected_letter)
