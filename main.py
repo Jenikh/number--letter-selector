@@ -1,5 +1,4 @@
 from microbit import *
-
 def select(printable=False, letters=True, only_lowercase=False, only_uppercase=False):
     ascii_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     ascii_lowercase = "abcdefghijklmnopqrstuvwxyz"
