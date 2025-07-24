@@ -36,8 +36,3 @@ def select(printable=False, letters=True, only_lowercase=False, only_uppercase=F
             
             while control.millis() > control.millis() + 30:
                 pass
-
-
-# Example usage
-selected_letter = select(printable=False, letters=True, only_lowercase=True)
-basic.show_string("You picked: " + selected_letter)

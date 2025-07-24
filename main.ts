@@ -48,6 +48,3 @@ function select(printable: boolean = false, letters: boolean = true, only_lowerc
     }
 }
 
-//  Example usage
-let selected_letter = select(false, true, true)
-basic.showString("You picked: " + selected_letter)
