@@ -10,7 +10,6 @@
         "main.ts",
         "README.md",
         "main.py",
-        "string.py",
         "_locales/cs/README.md"
     ],
     "testFiles": [
